@@ -13,7 +13,7 @@ function noon(){}
 function HtmlWebpackInlineAssetsPlugin (options) {
     options = options || {};
     this.filter = options.filter || /\.map$/;
-
+    this.presets = options.presets || [];
 }
 
 HtmlWebpackInlineAssetsPlugin.prototype.apply = function (compiler) {
@@ -59,6 +59,15 @@ HtmlWebpackInlineAssetsPlugin.prototype.inject = function(compilation, htmlPlugi
     });
 
     htmlPluginData.assets.css.forEach(function(v, i){
+        if( v && finalAss.indexOf(v) < 0){
+            finalAss.push(v);
+        }
+    });
+
+    this.presets.forEach((v, i) => {
+        if(this.filter.test(v)) {
+            return;
+        }
         if( v && finalAss.indexOf(v) < 0){
             finalAss.push(v);
         }
