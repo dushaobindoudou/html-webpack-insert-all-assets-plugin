@@ -1,6 +1,6 @@
 {
   "name": "html-webpack-insert-all-assets-plugin",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "html webpack insert all assets plugin",
   "main": "index.js",
   "repository": "https://github.com/dushaobindoudou/html-webpack-insert-all-assets-plugin.git",
